@@ -1,5 +1,5 @@
 // File DoubleLinkedSeqDemonstration.java
-// This demonstration program shows how to use the DoubleLinkedSeq class
+// This demonstration program shows how to use the DoubleLinkedSeq.java class
 // from the edu.colorado.homework.
 
 public class DoubleLinkedSeqDemonstration
