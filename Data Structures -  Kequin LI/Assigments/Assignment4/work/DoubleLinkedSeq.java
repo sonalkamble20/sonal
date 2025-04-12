@@ -1,7 +1,3 @@
-// File: DoubleLinkedSeq.java from the package edu.colorado.collections
-
-// This is an assignment for students to complete after reading Chapter 4 of
-// "Data Structures and Other Objects Using Java" by Michael Main.
 
 public class DoubleLinkedSeq implements Cloneable
 {
@@ -36,20 +32,6 @@ public class DoubleLinkedSeq implements Cloneable
       }
    }
 
-
-   /**
-   * Add a new element to this sequence, before the current element.
-   * @param element
-   *   the new element that is being added
-   * <b>Postcondition:</b>
-   *   A new copy of the element has been added to this sequence. If there was
-   *   a current element, then the new element is placed before the current
-   *   element. If there was no current element, then the new element is placed
-   *   at the start of the sequence. In all cases, the new element becomes the
-   *   new current element of this sequence.
-   * @exception OutOfMemoryError
-   *   Indicates insufficient memory for a new node.
-   **/
    public void addBefore(double element)
    {
       try
