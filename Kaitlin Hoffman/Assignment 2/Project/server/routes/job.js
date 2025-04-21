@@ -22,9 +22,9 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ message: "Job name and user ID are required" });
     }
 
-    await Job.addJob({ jobname, description, userId });
-
-    res.status(201).json({ message: "Job added successfully" }); 
+    const newJob = await Job.addJob({ jobname, description, userId });
+    res.status(201).json(newJob);  // Send back the inserted job
+    
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error, could not add job" });

@@ -1,26 +1,26 @@
-// Original version of server.js
-const express = require('express');
-const cors = require('cors');
-const app = express();
+const express = require("express");
 const path = require("path");
+const cors = require("cors"); // You missed requiring cors
+const app = express();
 
+// Middleware
+app.use(express.json());
 app.use(cors({
-  origin: '*',  // Allow all origins (you can restrict this later to specific domains)
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true  // Allow cookies if needed
+  origin: '*',  // Later, change this to your actual domain if needed
+  methods: ['GET', 'POST'],
+  credentials: true
 }));
 
-app.use(express.json());
+// Serve static files from the 'public' folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// Import routes
+// Routes
 const userRoutes = require("./server/routes/user");
 const jobRoutes = require("./server/routes/job");
 
-// Define routes
 app.use("/user", userRoutes);
 app.use("/job", jobRoutes);
 
-// Start the server
+// Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));

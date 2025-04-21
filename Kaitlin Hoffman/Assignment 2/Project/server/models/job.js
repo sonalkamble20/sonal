@@ -22,8 +22,15 @@ async function getAllJobsByUser(userId) {
 // Add a new job
 async function addJob(job) {
   let sql = `INSERT INTO Job (Jobname, Description, UserID) VALUES (?, ?, ?)`;
-  await con.query(sql, [job.jobname, job.description, job.userId]);
+  let result = await con.query(sql, [job.jobname, job.description, job.userId]);
+  let insertedId = result.insertId;
+
+  // Get the job that was just inserted
+  let selectSql = `SELECT * FROM Job WHERE JobID = ?`;
+  let insertedJob = await con.query(selectSql, [insertedId]);
+  return insertedJob[0];
 }
+
 
 module.exports = {
   getAllJobsByUser,
