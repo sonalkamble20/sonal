@@ -1,13 +1,13 @@
 const express = require("express");
 const path = require("path");
-const cors = require("cors"); // You missed requiring cors
+const cors = require("cors");
 const app = express();
 
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: '*',  // Later, change this to your actual domain if needed
-  methods: ['GET', 'POST'],
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
 
